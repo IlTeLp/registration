@@ -37,8 +37,8 @@ else {
         print_r($result);
     }
 }
-$key = htmlspecialchars($_GET['key']);
-if (empty($_GET['key'])){
+$key = htmlspecialchars($_POST['key']);
+if (empty($_POST['key'])){
 }
 else{
     $select1 = mysqli_fetch_assoc(mysqli_query($db,"SELECT * FROM `test` WHERE `short_key` =  '$key'"));

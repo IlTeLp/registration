@@ -5,18 +5,18 @@ if(!$baza){
 }
 $name=$_POST['username'];
 $email=$_POST['email'];
-$password=md5($_POST['password']);
-if(trim($name=='')){
+$password=$_POST['password'];
+if($name==""){
     echo "Введите имя!";
 }
-else if(trim($email=='')){
+else if($email==""){
     echo "Введите почту!";
 }
-else if(trim($password=='')){
+else if($password==""){
     echo "Введите пароль!";
 }
 else{
-
+    $password=md5($_POST['password']);
     mysqli_query($baza,"INSERT INTO `users` (`id`, `login`, `mail`, `password_hash`) VALUES (NULL, '$name','$email', '$password')");
     header('Location: urlshorter.php');
 }
