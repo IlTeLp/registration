@@ -9,10 +9,10 @@ $password=md5($_POST['password']);
 if(trim($name=='')){
     echo "Введите имя!";
 }
-if(trim($email=='')){
+else if(trim($email=='')){
     echo "Введите почту!";
 }
-if(trim($password=='')){
+else if(trim($password=='')){
     echo "Введите пароль!";
 }
 else{
