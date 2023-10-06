@@ -20,7 +20,7 @@ else {
         $result1 = [
             'url'  => $select['url'],
             'key'  => $select['short_key'],
-            'link' => 'http://'.$_SERVER['HTTP_HOST'].'/'.$select['short_key']
+            'link' => 'http://localhost:63342/second/urlshorter.php?key='.$select['short_key']
         ];
         print_r($result1);
     }
@@ -32,13 +32,13 @@ else {
         $result = [
             'url'  => $select1['url'],
             'key'  => $select1['short_key'],
-            'link' => 'http://'.$_SERVER['HTTP_HOST'].'/'.$select1['short_key']
+            'link' => "http://localhost:63342/second/urlshorter.php?key=".$select1['short_key']
         ];
         print_r($result);
     }
 }
-$key = htmlspecialchars($_POST['key']);
-if (empty($_POST['key'])){
+$key = htmlspecialchars($_GET['key']);
+if (empty($_GET['key'])){
 }
 else{
     $select1 = mysqli_fetch_assoc(mysqli_query($db,"SELECT * FROM `test` WHERE `short_key` =  '$key'"));
@@ -51,6 +51,7 @@ else{
     }
 }
 ?>
+
 <form action="" method="post">
     <input type="text" name="link">
     <input type="submit" name="submit">
