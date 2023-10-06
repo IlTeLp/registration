@@ -22,7 +22,6 @@ else {
             'key'  => $select['short_key'],
             'link' => 'http://localhost:63342/second/urlshorter.php?key='.$select['short_key']
         ];
-        print_r($result1);
     }
     else{
         $unique = uniqid('', true);
@@ -34,7 +33,6 @@ else {
             'key'  => $select1['short_key'],
             'link' => "http://localhost:63342/second/urlshorter.php?key=".$select1['short_key']
         ];
-        print_r($result);
     }
 }
 $key = htmlspecialchars($_GET['key']);
@@ -56,5 +54,12 @@ else{
     <input type="text" name="link">
     <input type="submit" name="submit">
 </form>
+<?php
+echo "Ваша ссылка: ".$result['link'];
+?>
+<br>
+<?php
+echo "Исходная ссылка: ".$result['url'];
+?>
 </body>
 </html>
